@@ -68,17 +68,8 @@ class App extends Component {
   }
 
   render() {
-    const estilo = {
-      backgroundColor : 'green',
-      color : 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      margin: '10px'
-     }
-
     let pessoas = null;
+    let btnClass = '';
 
     if(this.state.mostrarPessoas){
       pessoas = (
@@ -94,7 +85,7 @@ class App extends Component {
           }
       </div>
       )
-      estilo.backgroundColor = 'red';
+      btnClass = classes.vermelho;
     }
 
     let vetor = this.state.outra.split('');
@@ -120,12 +111,12 @@ class App extends Component {
      
     return (
       <div className={classes.App}>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Gesiel</h1>
+        <header className={classes.AppHeader}>
+          <img src={logo} className={classes.AppLogo} alt="logo" />
+          <h1 className={classes.AppTitle}>Welcome to Gesiel</h1>
         </header>
         <p className={classez.join(' ')}> Shrek is love, Shrek is life</p>
-        <button onClick={this.togglePessoaHandler} style={estilo}>
+        <button onClick={this.togglePessoaHandler} className={btnClass} >
          Switch! 
          </button>
          { pessoas }
