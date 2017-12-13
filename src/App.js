@@ -76,7 +76,7 @@ class App extends Component {
       border: '1px solid blue',
       padding: '8px',
       cursor: 'pointer',
-      margin: '1px',
+      margin: '10px',
       ':hover': {
         backgroundColor : 'lightgreen',
         color : 'black'
