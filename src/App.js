@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Radium, {StyleRoot} from 'radium';
 import Person from './Person/Person';
 import ValidationComponent from './ValidationComponent';
 import CharComponent from './CharComponent';
@@ -76,11 +75,7 @@ class App extends Component {
       border: '1px solid blue',
       padding: '8px',
       cursor: 'pointer',
-      margin: '10px',
-      ':hover': {
-        backgroundColor : 'lightgreen',
-        color : 'black'
-      }
+      margin: '10px'
      }
 
     let pessoas = null;
@@ -100,10 +95,6 @@ class App extends Component {
       </div>
       )
       estilo.backgroundColor = 'red';
-      estilo[':hover'] = {
-        backgroundColor : '#ff4d4d',
-        color : 'black'
-      }
     }
 
     let vetor = this.state.outra.split('');
@@ -128,7 +119,6 @@ class App extends Component {
     }
      
     return (
-      <StyleRoot>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -145,9 +135,8 @@ class App extends Component {
          <ValidationComponent comprimento={this.state.outra.length}/>
          { charComps }
       </div>
-      </StyleRoot>
     );
   }
 }
 
-export default Radium(App);
+export default App;
