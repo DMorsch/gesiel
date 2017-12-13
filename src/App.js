@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person';
 import ValidationComponent from './ValidationComponent';
 import CharComponent from './CharComponent';
@@ -110,21 +110,21 @@ class App extends Component {
       </div>
     )
 
-    let classes = [];
+    let classez = [];
     if(this.state.pessoas.length <= 2){
-      classes.push('vermelho');
+      classez.push('vermelho');
     }
     if(this.state.pessoas.length <= 1){
-      classes.push('bold');
+      classez.push('bold');
     }
      
     return (
-      <div className="App">
+      <div className={classes.App}>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Gesiel</h1>
         </header>
-        <p className={classes.join(' ')}> Shrek is love, Shrek is life</p>
+        <p className={classez.join(' ')}> Shrek is love, Shrek is life</p>
         <button onClick={this.togglePessoaHandler} style={estilo}>
          Switch! 
          </button>
