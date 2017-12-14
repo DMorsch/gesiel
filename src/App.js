@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import classes from './App.css';
-import Person from './Person/Person';
+import Person from './componentes/Persons/Person/Person';
 import ValidationComponent from './ValidationComponent';
-import CharComponent from './CharComponent';
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+import CharComponent from './componentes/CharComponent';
+import ErrorBoundary from './componentes/ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
   state = {
