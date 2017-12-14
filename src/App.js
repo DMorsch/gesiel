@@ -4,6 +4,7 @@ import classes from './App.css';
 import Person from './Person/Person';
 import ValidationComponent from './ValidationComponent';
 import CharComponent from './CharComponent';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
   state = {
@@ -76,11 +77,12 @@ class App extends Component {
         <div>
           {
             this.state.pessoas.map( (ps, indice) => {
-              return <Person nome={ps.nome} 
+              return <ErrorBoundary  key={ps.ID}>
+              <Person nome={ps.nome} 
               idade={ps.idade}
-              key={ps.ID}
                clique={() => this.deletePerson(indice)}
                mudar={(event) => this.nomeHandler(event, ps.ID)}/>
+               </ErrorBoundary>
             })
           }
       </div>
