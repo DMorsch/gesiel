@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import classes from './App.css';
-import Person from './componentes/Persons/Person/Person';
+import Persons from './componentes/Persons/Persons';
 import ValidationComponent from './ValidationComponent';
 import CharComponent from './componentes/CharComponent';
-import ErrorBoundary from './componentes/ErrorBoundary/ErrorBoundary';
+import Cockpit from './cockpit/Cockpit'
 
 class App extends Component {
   state = {
@@ -34,7 +33,7 @@ class App extends Component {
 
     const pessoa = {...this.state.pessoas[personIndex]};
 
-    pessoa.nome = event.target.value.length;
+    pessoa.nome = event.target.value;
 
     const pess = [...this.state.pessoas];
     pess[personIndex] = pessoa;
@@ -70,24 +69,15 @@ class App extends Component {
 
   render() {
     let pessoas = null;
-    let btnClass = '';
 
     if(this.state.mostrarPessoas){
       pessoas = (
-        <div>
-          {
-            this.state.pessoas.map( (ps, indice) => {
-              return <ErrorBoundary  key={ps.ID}>
-              <Person nome={ps.nome} 
-              idade={ps.idade}
-               clique={() => this.deletePerson(indice)}
-               mudar={(event) => this.nomeHandler(event, ps.ID)}/>
-               </ErrorBoundary>
-            })
-          }
-      </div>
+          <Persons 
+          pessoas={this.state.pessoas}
+          clicked={this.deletePerson}
+          mudou={this.nomeHandler}
+          />
       )
-      btnClass = classes.vermelho;
     }
 
     let vetor = this.state.outra.split('');
@@ -103,24 +93,15 @@ class App extends Component {
       </div>
     )
 
-    let classez = [];
-    if(this.state.pessoas.length <= 2){
-      classez.push('vermelho');
-    }
-    if(this.state.pessoas.length <= 1){
-      classez.push('bold');
-    }
+    
      
     return (
       <div className={classes.App}>
-        <header className={classes.AppHeader}>
-          <img src={logo} className={classes.AppLogo} alt="logo" />
-          <h1 className={classes.AppTitle}>Welcome to Gesiel</h1>
-        </header>
-        <p className={classez.join(' ')}> Shrek is love, Shrek is life</p>
-        <button onClick={this.togglePessoaHandler} className={btnClass} >
-         Switch! 
-         </button>
+        <Cockpit
+        mostrar={this.state.mostrarPessoas}
+        pessoas={this.state.pessoas}
+        clique={this.togglePessoaHandler}
+        />
          { pessoas }
          <br/>
          <input type="text" onChange={(event) => this.alteraOutra(event)}/>
