@@ -20,7 +20,7 @@ const cockpit = (props) => {
       <div className={classes.Cockpit}>
       <header className={classes.AppHeader}>
       <img src={logo} className={classes.AppLogo} alt="logo" />
-      <h1 className={classes.AppTitle}>Welcome to Gesiel</h1>
+      <h1 className={classes.AppTitle}>{props.titulo}</h1>
       </header>
      <p className={classez.join(' ')}> Shrek is love, Shrek is life</p>
      <button onClick={props.clique} className={btnClass} >
