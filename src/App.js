@@ -6,6 +6,11 @@ import CharComponent from './componentes/CharComponent';
 import Cockpit from './cockpit/Cockpit'
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    console.log('Gesiel lindo', props);
+  }
+
   state = {
     pessoas : [
       {ID : '#1', nome:"Gesiel", idade:"36"},
