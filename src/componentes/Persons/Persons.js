@@ -7,6 +7,7 @@ class Persons extends Component {
       return <Person nome={ps.nome} 
       idade={ps.idade}
       key={ps.ID}
+      posicao={indice}
        clique={() => this.props.clicked(indice)}
        mudar={(event) => this.props.mudou(event, ps.ID)}/>
     })
